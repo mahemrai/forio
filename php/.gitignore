@@ -4,3 +4,5 @@ data/deadline.db
 config/app.yml
 public/image/large/*
 public/image/thumb/*
+public/image/profile/*
+public/image/cover/*
