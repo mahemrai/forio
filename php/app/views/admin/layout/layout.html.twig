@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <title>Forio Admin</title>
+        <link rel="stylesheet" href="/public/css/admin.css" />
+        <link rel="stylesheet" href="/public/css/bootstrap-tagsinput.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="/public/js/bootstrap.min.js"></script>
+        <script src="/public/js/bootstrap-tagsinput.js"></script>
+        <script src="/public/js/typeahead.bundle.min.js"></script>
+        <script src="/public/js/admin.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                {% block content %}{% endblock %}
+
+                {% include 'admin/partials/info-form.html' %}
+
+                {% include 'admin/partials/profile-pic.html' %}
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+{% extends "light/layout/layout.html" %}
+
+{% block content %}
+
+{% include 'light/partials/sidebar.html.twig' with {'profile': profile} %}
+
+<div class="col-md-9 main-content site">
+    {% if profile.profile_pic is not null %}
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <img src="/public/image/profile/{{ profile.profile_pic }}" width="100%" style="margin-bottom:10px;">
+            </div>
+        </div>
+    {% endif %}
+    {% if profile is not null %}
+        <div class="row">
+            <div class="col-md-12" style="text-align:center;">
+                <h3>{{ profile.firstname }} {{ profile.lastname }}</h3>
+                <h4 style="color:#95958f;">{{ profile.title }} based in {{ profile.location }}</h4>
+                <p>{{ profile.bio }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"><hr class="dark"></div>
+        </div>
+    {% endif %}
+    {% if experiences is not null %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4"><p class="light">EXPERIENCE</p></div>
+                <div class="col-md-8">
+                    {% for experience in experiences %}
+                        <p class="red">{{ experience.title }}</p>
+                        <p>{{ experience.organisation }}</p>
+                        <p class="light">{{ experience.location }} | {{ experience.start_date }} - {{ experience.end_date }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"><hr class="dark"></div>
+        </div>
+    {% endif %}
+    {% if educations is not null %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4"><p class="light">EDUCATION</p></div>
+                <div class="col-md-8">
+                    {% for education in educations %}
+                        <p class="red">{{ education.course }}</p>
+                        <p>{{ education.school }}</p>
+                        <p class="light">{{ education.location }} | {{ education.start_year }} - {{ education.end_year }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

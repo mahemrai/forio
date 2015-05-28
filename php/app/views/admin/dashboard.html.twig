@@ -1,0 +1,42 @@
+{% extends "admin/layout/layout.html.twig" %}
+
+{% block content %}
+
+{% include 'admin/partials/menu.html.twig' with {'profile': 'profile_pic'} %}
+
+<div class="col-md-9 main-content">
+    <div class="row">
+        <div class="col-md-12 section-header">
+            <div class="col-md-9">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row"><div class="col-md-12 divider"><hr></div></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4 pad">
+                {% if project is empty %}
+                    <p>No projects added yet</p>
+                {% else %}
+                    <p>{{ project.title }}</p>
+                {% endif %}
+            </div>
+            <div class="col-md-4 pad">
+                {% if experience is empty %}
+                    <p>No experiences added yet</p>
+                {% else %}
+                    <p>{{ experience.title }}</p>
+                {% endif %}
+            </div>
+            <div class="col-md-4 pad">
+                {% if education is empty %}
+                    <p>No educations added yet</p>
+                {% else %}
+                    <p>{{ education.course }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

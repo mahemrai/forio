@@ -1,0 +1,194 @@
+@import 'bootstrap/bootstrap.less';
+
+@font-family-sans-serif: 'Quicksand';
+
+h2 {
+    font-size: 28px;
+}
+
+span.profile-pic {
+    margin-left: 20px;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+p.light {
+    color: #95958f;
+}
+
+p.light-16 {
+    color: #95958f;
+    font-size: 16px;
+}
+
+p.red {
+    color: #f03d41;
+}
+
+div.site {
+    padding-top: 20px;
+    color: #4f4f4f;
+}
+
+div.sidebar {
+    height: 100%;
+    width: 20%;
+    color: #4f4f4f;
+}
+
+div#login-form, div#account-form {
+    width: 35%;
+    margin: auto;
+    padding: 10px;
+
+    button.login, button.create-account {
+        width: 100%;
+        background-color: #00acec;
+        color: #fff;
+        border-radius: 0;
+        border: none;
+        padding: 10px;
+        -webkit-transition: color 0.5s ease-out;
+        -webkit-transition: background-color 0.5s ease-out;
+        -moz-transition: color 0.5s ease-out;
+        -moz-transition: backgorund-color 0.5s ease-out;
+    }
+
+    button.login:hover, button.create-account:hover {
+        background-color: #ecf0f1;
+        color: #ccc;
+        -webkit-transition: color 0.5s ease-out;
+        -webkit-transition: background-color 0.5s ease-out;
+        -moz-transition: color 0.5s ease-out;
+        -moz-transition: background-color 0.5s ease-out;
+    }
+}
+
+ul.nav {
+    li > a {
+        color: #fff;
+        font-size: 20px;
+        left: 10px;
+        transition: left 0.5s;
+        -webkit-transition: left 0.5s;
+        padding: 10px 15px;
+    }
+
+    li > a.dark {
+        color: #f03d41;
+    }
+
+    li > a:hover {
+        background: none;
+        left: 40px;
+        opacity: 0.4;
+    }
+}
+
+div.divider {
+    margin-left: 20px;
+}
+
+div.loader {
+    width: 100%;
+    height: 150px;
+    text-align: center;
+
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+    }
+}
+
+div.viewer {
+    position: absolute;
+    top: 0;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    background: #0084b4;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+}
+
+div.viewer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    opacity: 0;
+    color: #fff;
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+}
+
+img.thumb {
+    opacity: 0.8;
+    width: 100%;
+}
+
+a.load-image:hover div.viewer {
+    opacity: 0.8;
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+}
+
+a.load-image:hover div.viewer-text {
+    opacity: 1;
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+}
+
+hr.dark {
+    height: 1px;
+    border: none;
+    background-color: #eaeaea;
+}
+
+a.link:hover div.overlay {
+    opacity: 0.8;
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+}
+
+a.link:hover div.overlay-text {
+    opacity: 1;
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+}
+
+div.overlay {
+    position: absolute;
+    top: 0px;
+    width: 450px;
+    height: 450px;
+    background: #0084b4;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+}
+
+div.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+
+    span {
+        font-size: 30px;
+    }
+}

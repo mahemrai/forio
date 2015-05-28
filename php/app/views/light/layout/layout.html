@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <title>Forio</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../public/css/light.css" />
+        <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="/public/js/bootstrap.min.js"></script>
+        <script src="/public/js/light/app.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid" style="background:#fff;">
+            <div class="row">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="row"><div class="col-md-12"><hr class="dark"></div></div>
+            <div class="row">
+                <div class="col-md-12" style="text-align:center;">
+                    <p style="font-size:12px;"><i class="fa fa-copyright"></i> {{ "now"|date("Y") }}<br>Powered by <span style="color:#95958f;">Forio</span></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

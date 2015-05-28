@@ -1,0 +1,21 @@
+<div class="col-md-3 sidebar">
+    <div class="col-md-12">
+        <span class="profile-pic">
+            {% if profile is empty %}
+                <img src="/public/image/site/no-profile-image.png" height="100" width="100" class="img-circle" style="margin-top:20px;">
+            {% else %}
+                <img src="/public/image/profile/{{ profile.profile_pic }}" height="100" width="100" class="img-circle" style="margin-top:20px;">
+            {% endif %}
+        </span>
+        <h3>{{ profile.firstname }} {{ profile.lastname }}</h3>
+        <h4 style="color:#95958f;">{{ profile.title }}</h4>
+    </div>
+    <div class="col-md-12">
+        <hr class="dark">
+    </div>
+    <ul class="nav nav-stacked">
+        <li><a class="dark" href="/">Portfolio</a></li>
+        <li><a class="dark" href="/about">About</a></li>
+        <li><a class="dark" href="/contact">Contact</a></li>
+    </ul>
+</div>

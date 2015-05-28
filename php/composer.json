@@ -1,0 +1,29 @@
+{
+    "name": "Forio",
+    "description": "Slim portfolio CMS",
+    "version": "0.1",
+    "type" : "web application",
+    "authors": [
+        {
+            "name": "Mahendra Rai"
+        }
+    ],
+    "require": {
+        "slim/slim": "2.*",
+        "illuminate/database": "4.2.16",
+        "slim/views": "0.1.*",
+        "twig/twig": "1.16.*@dev",
+        "zendframework/zend-session": "2.3.*@dev",
+        "techsterx/slim-config-yaml": "dev-master",
+        "davedevelopment/phpmig": "*",
+        "pimple/pimple": "1.*"
+    },
+    "require-dev": {
+        "oyejorge/less.php": "~1.5"
+    },
+    "autoload": {
+        "psr-0": {
+            "Forio": "app/"
+        }
+    }
+}

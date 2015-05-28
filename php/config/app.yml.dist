@@ -1,0 +1,11 @@
+application:
+    base_url:
+        url:
+    theme:
+        name:
+    image_paths:
+        temp:
+        large:
+        thumb:
+        cover:
+        profile:

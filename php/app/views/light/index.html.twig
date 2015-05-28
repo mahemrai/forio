@@ -1,0 +1,22 @@
+{% extends "light/layout/layout.html" %}
+
+{% block content %}
+
+{% include 'light/partials/sidebar.html.twig' with {'profile': profile} %}
+
+<div class="col-md-9 main-content site">
+    <div class="row">
+        {% for project in projects %}
+            <div class="col-md-6">
+                <span>
+                <a class="link" href="/projects/{{ project.slug }}">
+                    <img src="{{ project.images[0].cover }}"/>
+                    <div class="overlay"></div>
+                    <div class="overlay-text"><span>{{ project.title }}</span></div>
+                </a>
+            </span>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "admin/layout/layout.html.twig" %}
+
+{% block content %}
+
+{% include 'admin/partials/menu.html' %}
+
+<div class="col-md-9 main-content">
+    <div class="row">
+        <div class="col-md-12 section-header">
+            <div class="col-md-9">
+                <h1>Profile Pic</h1>
+            </div>
+            <div class="col-md-3">
+                <button class="edit-profile-pic">Edit</button>
+            </div>
+        </div>
+    </div>
+    <div class="row"><div class="col-md-12 divider"><hr></div></div>
+    <div class="row">
+        <div class="col-md-12">
+            {% if info.profile_pic is empty %}
+                <img alt="no profile pic" height="150" src="/public/image/site/noimage.jpg" class="img-circle" style="margin-left:20px">
+            {% else %}
+                <img alt="profile pic" height="150" src="{{ info.profile_pic }}" class="img-circle" style="margin-left:20px">
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 section-header">
+            <div class="col-md-9">
+                <h1>Personal Info</h1>
+            </div>
+            <div class="col-md-3">
+                <button class="edit-info">Edit</button>
+            </div>
+        </div>
+    </div>
+    <div class="row"><div class="col-md-12 divider"><hr></div></div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td><b>Firstname</b></td>
+                        <td>{{ info.firstname }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Lastname</b></td>
+                        <td>{{ info.lastname }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Title</b></td>
+                        <td>{{ info.title }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Bio</b></td>
+                        <td>{{ info.bio }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Location</b></td>
+                        <td>{{ info.location }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Clients</b></td>
+                        <td>{{ info.clients }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="hidden" name="user-id" class="user-id" value="{{ info.id }}"/>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

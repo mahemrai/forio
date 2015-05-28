@@ -1,0 +1,108 @@
+{% extends "admin/layout/layout.html.twig" %}
+
+{% block content %}
+
+{% include 'admin/partials/menu.html.twig' with {'profile': 'profile_pic'} %}
+
+<div class="col-md-9 main-content">
+    <div class="row">
+        <div class="col-md-12 section-header">
+            <div class="col-md-9">
+                <h1>Projects</h1>
+            </div>
+            <div class="col-md-3">
+                <button class="load-project-form"><i class="fa fa-plus"></i> Add Project</button>
+            </div>
+        </div>
+    </div>
+    <div class="row"><div class="col-md-12 divider"><hr></div></div>
+    <div class="row">
+        {% for project in projects %}
+            <div class="col-md-12 item">
+                <div class="col-md-8 item-name"><p>{{ project.title }}</p></div>
+                <div class="col-md-4 action-menu">
+                    <ul>
+                        <li>
+                            <a href="/admin/project/{{ project.id }}" class="add-image" data-id="{{ project.id }}" data-toggle="tooltip" data-placement="top" title="Manage Project Image">
+                                <i class="fa fa-picture-o"></i>
+                            </a>
+                        </li>
+                        <li><a href="#" class="edit-project" data-id="{{ project.id }}" data-toggle="tooltip" data-placement="top" title="Edit Project">
+                            <i class="fa fa-pencil-square-o"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="delete-project" data-id="{{ project.id }}" data-toggle="tooltip" data-placement="top" title="Delete Project">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div id="project-form" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>Project</h2>
+                <hr>
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="title" class="col-md-3 control-label">Title</label>
+                        <div class="col-md-9">
+                            <input type="text" name="title" class="form-control title"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="desc" class="col-md-3 control-label">Description</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control desc" name="desc" row="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="type" class="col-md-3 control-label">Type</label>
+                        <div class="col-md-9">
+                            <input type="text" name="type" class="form-control type"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="for" class="col-md-3 control-label">For</label>
+                        <div class="col-md-9">
+                            <input type="text" name="for" class="form-control for"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date" class="col-md-3 control-label">Project Date</label>
+                        <div class="col-md-9">
+                            <input type="text" name="date" class="form-control date"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="keyword" class="col-md-3 control-label">Keywords</label>
+                        <div class="col-md-9">
+                            <input type="text" name="keywords" class="form-control keywords" id="typeahead"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9" id="typeahead-keywords"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="hidden" name="id" class="form-control project-id"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 buttons">
+                            <button class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-success save-project">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

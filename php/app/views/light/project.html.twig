@@ -1,0 +1,59 @@
+{% extends "light/layout/layout.html" %}
+
+{% block content %}
+
+{% include 'light/partials/sidebar.html.twig' with {'profile': profile} %}
+
+<div class="col-md-9 main-content site">
+    <div class="row">
+        <div class="col-md-12 section-header">
+            <div class="col-md-6">
+                <h1 style="margin-top: 0px;">{{ project.title }}</h1>
+                {% if project.for is not null %}
+                    <p class="light-16">{{ project.for }}</p>
+                {% endif %}
+                {% if project.date is not null %}
+                    <p class="light-16">{{ project.date }}</p>
+                {% endif %}
+                {% if project.type is not null %}
+                    <p class="light-16">{{ project.type }}</p>
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <p class="light" style="text-align:justify;">{{ project.description }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row"><div class="col-md-12 divider"><hr class="dark"></div></div>
+    <div class="row">
+        <div class="col-md-12" style="margin-left:10px;">
+            <div class="col-md-6">
+                <div class="preview">
+                    <img class="image-box" width="100%" style="margin-bottom:5px;" src="{{ project.images.getResults[0].filename }}"/>
+                    <div style="text-align:justify;">
+                        <b><span id="image-title">{{ project.images.getResults[0].title }}</b></span></b>
+                        <br>
+                        <span id="image-desc">{{ project.images.getResults[0].description|raw }}</span>
+                    </div>
+                </div>
+                <div class="col-md-12 loader">
+                    <span><i class="fa fa-refresh fa-spin"></i> Loading...</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    {% for image in project.images.getResults %}
+                        <div class="col-md-4" style="margin-bottom:10px;">
+                            <a class="load-image" href="#" data-id="{{ image.id }}">
+                                <img class="thumb" src="{{ image.cover }}"/>
+                                <div class="viewer"></div>
+                                <div class="viewer-text"><i class="fa fa-eye"></i></div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

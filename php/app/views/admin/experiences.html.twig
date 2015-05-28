@@ -1,0 +1,103 @@
+{% extends "admin/layout/layout.html.twig" %}
+
+{% block content %}
+
+{% include 'admin/partials/menu.html.twig'  with {'profile': 'profile_pic'} %}
+
+<div class="col-md-9 main-content">
+    <div class="row">
+        <div class="col-md-12 section-header">
+            <div class="col-md-9">
+                <h1>Experiences</h1>
+            </div>
+            <div class="col-md-3">
+                <button class="load-experience-form"><i class="fa fa-plus"></i> Add Experience</button>
+            </div>
+        </div>
+    </div>
+    <div class="row"><div class="col-md-12 divider"><hr></div></div>
+    <div class="row">
+        {% if experiences is empty %}
+            <div class="col-md-12 item">
+                <div class="col-md-12">
+                    <h2>You have not added any experiences yet. Please <a href="#" class="load-experience-form">add</a> now.</h2>
+                </div>
+            </div>
+        {% else %}
+            {% for experience in experiences %}
+                <div class="col-md-12 item">
+                    <div class="col-md-8 item-name"><p>{{ experience.title }}</p></div>
+                    <div class="col-md-4 action-menu">
+                        <ul>
+                            <li>
+                                <a href="#" class="alt edit-experience" data-id="{{ experience.id }}" data-toggle="tooltip" data-placement="top" title="Edit Experience">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="alt delete-experience" data-id="{{ experience.id }}" data-toggle="tooltip" data-placement="top" title="Delete Experience">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </li>
+                        </ul> 
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+<div id="experience-form" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>Experiences</h2>
+                <hr>
+                <form class="form-horizontal" method="post" action="">
+                    <div class="form-group">
+                        <label for="title" class="col-md-3 control-label">Title</label>
+                        <div class="col-md-9">
+                            <input type="text" name="title" class="form-control title"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="organisation" class="col-md-3 control-label">Organisation</label>
+                        <div class="col-md-9">
+                            <input type="text" name="organisation" class="form-control organisation"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="location" class="col-md-3 control-label">Location</label>
+                        <div class="col-md-9">
+                            <input type="text" name="location" class="form-control location"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date" class="col-md-3 control-label">Start Date</label>
+                        <div class="col-md-9">
+                            <input type="text" name="start-date" class="form-control start-date"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date" class="col-md-3 control-label">End Date</label>
+                        <div class="col-md-9">
+                            <input type="text" name="end-date" class="form-control end-date"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="hidden" name="id" class="form-control experience-id"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 buttons">
+                            <button class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-success save-experience">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

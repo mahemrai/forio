@@ -1,0 +1,133 @@
+{% extends "admin/layout/layout.html.twig" %}
+
+{% block content %}
+
+{% include 'admin/partials/menu.html.twig' with {'profile': 'profile_pic'} %}
+
+<div class="col-md-9 main-content">
+    <div class="row">
+        <div class="col-md-12 section-header">
+            <div class="col-md-9">
+                <h1>{{ project.title }}</h1>
+            </div>
+            <div class="col-md-3">
+                <button class="load-image-form"><i class="fa fa-plus"></i> Add Image</button>
+            </div>
+        </div>
+    </div>
+    <div class="row"><div class="col-md-12 divider"><hr></div></div>
+    <div class="row">
+        <div class="col-md-12" style="margin-left:30px;">
+            {% if images is empty %}
+                <h2>There are no images uploaded to the project yet. Please upload now.</h2>
+            {% else %}
+                {% for image in images %}
+                    <div class="col-md-3">
+                        <div class="col-md-12" style="text-align:center;">
+                            <img class="img" height="150px" width="100%" src="{{ image.cover }}"/><br><br>
+                        </div>
+                        <div class="col-md-12 action-menu" style="text-align:center;">
+                            <ul>
+                                <li>
+                                    <a href="#" class="medium image-view" data-image="{{ image.filename }}" data-toggle="tooltip" data-placement="top" title="View image"><i class="fa fa-eye"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="medium image-edit" data-id="{{ image.id }}" data-toggle="tooltip" data-placement="top" title="Edit image details"><i class="fa fa-pencil-square-o"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="medium image-delete" data-id="{{ image.id }}" data-toggle="tooltip" data-placement="top" title="Delete image"><i class="fa fa-trash"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div id="image-form" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>Upload Image</h2>
+                <hr>
+                <div class="image-preview">
+                    <img style="height:100%;" class="preview" src="/public/image/site/noimage.jpg"/>
+                </div>
+                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="pic" class="col-md-3">Filename</label>
+                        <div class="col-md-9">
+                            <input class="form-control project" type="file" name="pic" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="title" class="col-md-3">Title</label>
+                        <div class="col-md-9">
+                            <input class="form-control image-title" type="text" name="title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-md-3">Description</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control image-desc" name="description" col="10" row="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 buttons">
+                            <button class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-success btn-process" data-project="{{ project.id }}">Upload</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="imageview" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="col-md-12 buttons"><button class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i></button></div>
+            <div class="col-md-12 image-viewer" style="margin-top: 10px;"><img src=""/></div>
+        </div>
+    </div>
+</div>
+
+<div id="edit-form" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>Upload Image</h2>
+                <hr>
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="title" class="col-md-3 control-label">Title</label>
+                        <div class="col-md-9">
+                            <input name="title" class="form-control title" type="text"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="desc" class="col-md-3 control-label">Description</label>
+                        <div class="col-md-9">
+                            <textarea name="desc" class="form-control desc" col="10" row="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-offset-md-3 col-md-9">
+                            <input type="hidden" class="form-control id" name="id"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 buttons">
+                            <button class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-primary save-image">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

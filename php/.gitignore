@@ -1,0 +1,6 @@
+vendor/*
+config/database.php
+data/deadline.db
+config/app.yml
+public/image/large/*
+public/image/thumb/*

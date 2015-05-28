@@ -1,0 +1,19 @@
+<div class="col-md-3 sidebar">
+    <div class="col-md-12">
+        <a href="#" class="profile-pic">
+            {% if profile is empty %}
+                <img src="/public/image/site/no-profile-image.png" height="100" width="100" class="img-circle" style="margin-top:10px;">
+            {% else %}
+                <img src="/public/image/profile/{{ profile_pic }}" height="100" width="100" class="img-circle" style="margin-top:10px;">
+            {% endif %}
+            <div class="profile-pic-msg"><span>Update Profile Pic</span></div>
+        </a>
+    </div>
+    <ul class="nav nav-stacked">
+        <li><a href="/admin/projects">Projects</a></li>
+        <li><a href="/admin/experiences">Experiences</a></li>
+        <li><a href="/admin/educations">Educations</a></li>
+        <li><a href="#" class="edit-info">Personal Info</a></li>
+        <li><a href="/admin/logout">Logout</a></li>
+    </ul>
+</div>
